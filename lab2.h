@@ -23,7 +23,13 @@ int* worker_validation; // this will hold the result from each thread
  *                  if the board is not valid; 1 otherwise.
 */
 int is_board_valid();
-
+pthread_t* tid;  /* the thread identifiers */
+pthread_attr_t attr;  
+  
+thread_t* tid = (thread_t*)malloc(sizeof(int)*NUM_OF_THREADS);
+  
+param_struct* params = (param_struct*)malloc(sizeof(param_struct)*NUM_OF_THREADS); 
+  
 /** 
  * Reads in the sudoku board into a 2-dimensional array
  * and returns a reference to the array.
